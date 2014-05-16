@@ -2,10 +2,12 @@ import org.lwjgl.LWJGLException;
 import org.lwjgl.opengl.Display;
 
 import static org.lwjgl.opengl.GL11.*;
+
 import org.lwjgl.input.Mouse;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.*;
 import org.lwjgl.*;
+@SuppressWarnings("unused")
 public class Main {
 
 	public Main(){
