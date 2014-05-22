@@ -83,7 +83,7 @@ public class Main {
 		loadedLevel = new byte[(size*size)][];
 		int i = 0;
 		while (i<(size*size)){
-			loadedLevel[i] = new byte[8];
+			loadedLevel[i] = new byte[10];
 			i++;
 		}
 		i = 0;
@@ -100,6 +100,8 @@ public class Main {
 				loadedLevel[i][5]= 0;
 				loadedLevel[i][6]= 0;
 				loadedLevel[i][7]= 0;
+				loadedLevel[i][8]= 0;
+				loadedLevel[i][9]= 0;
 				i2++;
 				i++;
 			}

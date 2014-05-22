@@ -24,7 +24,7 @@ public class SaveFileMaker {
 			
 			int i = 0;
 			while (i<size){
-				fos.write(byteArray[i],0,8);
+				fos.write(byteArray[i],0,10);
 				i++;
 			}
 
