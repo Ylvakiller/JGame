@@ -21,10 +21,10 @@ public class SaveFileMaker {
 		try {
 			fos = new FileOutputStream(save, true);
 			int size = byteArray.length;
-			System.out.println(size);
+			
 			int i = 0;
 			while (i<size){
-				fos.write(byteArray[i],0,7);
+				fos.write(byteArray[i],0,8);
 				i++;
 			}
 

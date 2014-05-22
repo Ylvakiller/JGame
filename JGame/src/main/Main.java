@@ -14,12 +14,15 @@ public class Main {
 
 	private Texture grass;
 	private TextureManager textureManager;
-	private SaveFileMaker loadSave;
+	private SaveFileMaker saveMaker;
 	byte[][] loadedLevel;
 	public Main(){
-		textureManager = new TextureManager();
-		loadSave = new SaveFileMaker();
-		try {
+		//textureManager = new TextureManager();
+		saveMaker = new SaveFileMaker();
+		 long startTime = System.currentTimeMillis();
+		/*
+		 * try {
+		 
 			Display.setDisplayMode(new DisplayMode(1280,1024));
 			Display.setTitle("Hello LWJGL");
 			Display.create();
@@ -27,11 +30,13 @@ public class Main {
 			e.printStackTrace();
 			Display.destroy();
 			System.exit(1);
-		}
-		this.MakeLevel(5);
-		loadSave.SaveLevel(loadedLevel,"test");
-		grass = textureManager.getTexture("grass");
+		}*/
+		this.CreateEmptyLevel(2000);
+		saveMaker.SaveLevel(loadedLevel,"test");
 		
+		System.out.println("This took : " + (System.currentTimeMillis()-startTime) + " miliseconds");
+		//grass = textureManager.getTexture("grass");
+		/*
 		// Initialization code OpenGl
 		glMatrixMode(GL_PROJECTION);
 		glLoadIdentity();
@@ -45,7 +50,8 @@ public class Main {
 			glClear(GL_COLOR_BUFFER_BIT);
 			
 			if (Keyboard.isKeyDown(Keyboard.KEY_ESCAPE)){
-				Display.destroy();System.exit(0);
+				Display.destroy();
+				System.exit(0);
 			}
 			grass.bind();
 			glBegin(GL_QUADS);
@@ -58,13 +64,14 @@ public class Main {
 			glTexCoord2f(1, 0);
 			glVertex2i(450,400);
 			glEnd();
+			grass.release();
 			
 			Display.update();
 			Display.sync(60);
 		}
 		
 		Display.destroy();
-		
+		*/
 	}
 	
 	public static void main(String[] args) {
@@ -72,11 +79,11 @@ public class Main {
 
 	}
 	
-	private void MakeLevel(int size){
+	private void CreateEmptyLevel(int size){
 		loadedLevel = new byte[(size*size)][];
 		int i = 0;
 		while (i<(size*size)){
-			loadedLevel[i] = new byte[7];
+			loadedLevel[i] = new byte[8];
 			i++;
 		}
 		i = 0;
@@ -92,6 +99,7 @@ public class Main {
 				loadedLevel[i][4]= 8;
 				loadedLevel[i][5]= 0;
 				loadedLevel[i][6]= 0;
+				loadedLevel[i][7]= 0;
 				i2++;
 				i++;
 			}
